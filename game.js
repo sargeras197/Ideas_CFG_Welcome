@@ -1,11 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const savedTheme = localStorage.getItem('cfg-theme');
 
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Дякуємо за ваше повідомлення! Ми зв\'яжемося з вами найближчим часом.');
-            form.reset();
+    const setTheme = (theme) => {
+        const isLight = theme === 'light';
+        document.documentElement.dataset.theme = isLight ? 'light' : 'dark';
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', String(isLight));
+            themeToggle.setAttribute('aria-label', isLight ? 'Увімкнути темну тему' : 'Увімкнути світлу тему');
+            themeToggle.querySelector('.theme-icon').textContent = isLight ? '☾' : '☼';
+        }
+    };
+
+    setTheme(savedTheme || 'dark');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('cfg-theme', nextTheme);
+            setTheme(nextTheme);
         });
     }
 

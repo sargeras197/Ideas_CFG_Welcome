@@ -3,23 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberFraudGame — Проект та Гра</title>
+    <meta name="description" content="CyberFraudGame — інтерактивна платформа для навчання цифровій безпеці.">
+    <title>CyberFraudGame — цифрова безпека у форматі гри</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">CyberFraudGame</div>
-        <nav>
-            <a href="#about">Про проект</a>
-            <a href="#features">Особливості</a>
-            <a href="#contact">Контакти</a>
+        <a class="logo" href="#" aria-label="CyberFraudGame — на головну">
+            <span class="logo-mark" aria-hidden="true">⌁</span>
+            CyberFraud<span>Game</span>
+        </a>
+        <nav aria-label="Основна навігація">
+            <a href="https://sargeras197.github.io/contacts/" target="_blank" rel="noopener noreferrer">Контакти</a>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="Увімкнути світлу тему" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">☼</span>
+            <span class="theme-label">Тема</span>
+        </button>
     </header>
 
     <section class="hero">
-        <h1>Протидія кібершахрайству</h1>
-        <p>Інтерактивна навчальна платформа та гра для аналізу схем шахрайства та захисту особистості.</p>
-        <a href="#about" class="btn">Дізнатися більше</a>
+        <div class="hero__content">
+            <span class="eyebrow">Навчайся · Розпізнавай · Захищай</span>
+            <h1>Протидія <span>кібершахрайству</span></h1>
+            <p>Інтерактивна навчальна платформа та гра для аналізу схем шахрайства й захисту особистих даних.</p>
+            <div class="hero__actions">
+                <a href="#games" class="btn">Обрати місію <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+            <div class="radar">
+                <span class="radar__ring radar__ring--one"></span>
+                <span class="radar__ring radar__ring--two"></span>
+                <span class="radar__dot radar__dot--one"></span>
+                <span class="radar__dot radar__dot--two"></span>
+                <span class="radar__core">+</span>
+            </div>
+            <span class="visual-label visual-label--top">система активна</span>
+            <span class="visual-label visual-label--bottom">загрозу виявлено</span>
+        </div>
     </section>
 
     <section id="games" class="games-section">
@@ -54,41 +76,17 @@
         </div>
     </section>
 
-    <section id="about" class="container">
-        <h2>Про проект</h2>
-        <p>CyberFraudGame — це симуляційна веб-гра та освітній інструмент, розроблений для підвищення обізнаності про цифрові загрози, фішинг, соціальну інженерію та шахрайські схеми.</p>
-    </section>
-
-    <section id="features" class="container dark">
-        <h2>Основні можливості</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Симуляція сценаріїв</h3>
-                <p>Практичні завдання на виявлення фішингових сайтів та маніпулятивних повідомлень.</p>
-            </div>
-            <div class="card">
-                <h3>Аналіз загроз</h3>
-                <p>Розбір реальних схем кібершахрайства та методів захисту персональних даних.</p>
-            </div>
-            <div class="card">
-                <h3>Мультиплеєр / Інтерактив</h3>
-                <p>Змагальний та навчальний режими для користувачів будь-якого рівня підготовки.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="container">
-        <h2>Зв'язатися з нами</h2>
-        <form id="contactForm">
-            <input type="text" placeholder="Ваше ім'я" required>
-            <input type="email" placeholder="Ваш Email" required>
-            <textarea placeholder="Ваше повідомлення" rows="4" required></textarea>
-            <button type="submit" class="btn">Надіслати</button>
-        </form>
-    </section>
-
     <footer>
-        <p>&copy; 2026 CyberFraudGame Project. Всі права захищено.</p>
+        <div class="footer-developer">
+            <span class="footer-emoji" aria-hidden="true">🧑‍💻</span>
+            <span>Розробник:</span>
+            <a href="https://sargeras197.github.io/contacts/" target="_blank" rel="noopener noreferrer">Сергій Євдокимов</a>
+        </div>
+        <div class="footer-meta">
+            <span aria-hidden="true">📌</span>
+            <span>v. 0.04</span>
+            <span>від 04.11.2026</span>
+        </div>
     </footer>
 
     <script src="game.js"></script>
