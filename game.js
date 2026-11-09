@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.classList.add('is-ready');
+
     const themeToggle = document.querySelector('.theme-toggle');
     const savedTheme = localStorage.getItem('cfg-theme');
 
@@ -48,5 +50,26 @@ document.addEventListener('DOMContentLoaded', () => {
             startGame.textContent = 'Сесію створено ✓';
             startGame.disabled = true;
         });
+    }
+
+    const revealItems = document.querySelectorAll('.hero__content, .hero__visual, .section-heading, .game-card, .game-launcher');
+    const reveal = (element) => element.classList.add('is-visible');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    reveal(entry.target);
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealItems.forEach((element, index) => {
+            element.dataset.reveal = '';
+            element.style.animationDelay = `${Math.min(index * 70, 280)}ms`;
+            observer.observe(element);
+        });
+    } else {
+        revealItems.forEach(reveal);
     }
 });
